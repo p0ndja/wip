@@ -1,38 +1,30 @@
 "use client";
 import Image from "next/image";
 
-import * as React from "react";
+import { useState } from "react";
 
-import { Calendar } from "@/components/ui/calendar";
-import BottomNav from "@/components/ui/BottomNav";
-import { Container } from "postcss";
-import { CircleAlert, Terminal } from "lucide-react";
+import { CalendarDays, CircleAlert, LayoutGrid } from "lucide-react";
 
 import { Alert, AlertDescription, AlertTitle } from "@/components/ui/alert";
+import Link from "next/link";
+import BottomNav from "@/components/ui/BottomNav";
 
 import { Button } from "@/components/ui/button";
-import {
-  Card,
-  CardContent,
-  CardDescription,
-  CardFooter,
-  CardHeader,
-  CardTitle,
-} from "@/components/ui/card";
-import { Input } from "@/components/ui/input";
-import { Label } from "@/components/ui/label";
-import {
-  Select,
-  SelectContent,
-  SelectItem,
-  SelectTrigger,
-  SelectValue,
-} from "@/components/ui/select";
-export function CalendarDemo() {
-  const [date, setDate] = React.useState<Date | undefined>(new Date());
+import { Card, CardContent } from "@/components/ui/card";
+
+export function IndexPage() {
+  const [date, setDate] = useState<Date | undefined>(new Date());
 
   return (
-    <div className="container pt-5">
+    <main className="container pt-5">
+      <Image
+        className="relative dark:invert mb-5"
+        src="/samohub.svg"
+        alt="SamoHub Logo"
+        width={100}
+        height={32}
+        priority
+      />
       <h1 className="text-4xl font-bold mb-3">Hello!</h1>
       <Alert style={{ color: "darkgreen" }} className="mb-3">
         <CircleAlert className="h-10 w-4" />
@@ -46,38 +38,42 @@ export function CalendarDemo() {
         <h1 className="text-3xl font-bold mb-3">What&apos;s up!</h1>
         {/* https://upload.wikimedia.org/wikipedia/commons/thumb/3/3f/Placeholder_view_vector.svg/991px-Placeholder_view_vector.svg.png */}
         <div className="grid gap-5 grid-cols-1 md:grid-cols-2 place-items-center">
-          <div>
-            <Image
-              alt="sampleimage"
-              className="mb-1 rounded-lg"
-              width={1000}
-              height={500}
-              style={{
-                objectFit: "cover",
-                width: "100%",
-                aspectRatio: "16/9",
-                maxWidth: "440px",
-              }}
-              src="https://upload.wikimedia.org/wikipedia/commons/thumb/3/3f/Placeholder_view_vector.svg/991px-Placeholder_view_vector.svg.png"
-            />
-            <h1 className="text-xl font-bold mb-3">Sample Title</h1>
-          </div>
-          <div>
-            <Image
-              alt="sampleimage"
-              className="mb-1 rounded-lg"
-              width={1000}
-              height={500}
-              style={{
-                objectFit: "cover",
-                width: "100%",
-                aspectRatio: "16/9",
-                maxWidth: "440px",
-              }}
-              src="https://upload.wikimedia.org/wikipedia/commons/thumb/3/3f/Placeholder_view_vector.svg/991px-Placeholder_view_vector.svg.png"
-            />
-            <h1 className="text-xl font-bold mb-3">Sample Title</h1>
-          </div>
+          <Link href="/post">
+            <div>
+              <Image
+                alt="sampleimage"
+                className="mb-1 rounded-lg"
+                width={1000}
+                height={500}
+                style={{
+                  objectFit: "cover",
+                  width: "100%",
+                  aspectRatio: "16/9",
+                  maxWidth: "440px",
+                }}
+                src="https://upload.wikimedia.org/wikipedia/commons/thumb/3/3f/Placeholder_view_vector.svg/991px-Placeholder_view_vector.svg.png"
+              />
+              <h1 className="text-xl font-bold mb-3">Sample Title</h1>
+            </div>
+          </Link>
+          <Link href="/post">
+            <div>
+              <Image
+                alt="sampleimage"
+                className="mb-1 rounded-lg"
+                width={1000}
+                height={500}
+                style={{
+                  objectFit: "cover",
+                  width: "100%",
+                  aspectRatio: "16/9",
+                  maxWidth: "440px",
+                }}
+                src="https://upload.wikimedia.org/wikipedia/commons/thumb/3/3f/Placeholder_view_vector.svg/991px-Placeholder_view_vector.svg.png"
+              />
+              <h1 className="text-xl font-bold mb-3">Sample Title</h1>
+            </div>
+          </Link>
         </div>
       </div>
 
@@ -89,31 +85,36 @@ export function CalendarDemo() {
         <ImagePlaceholder />
         <ImagePlaceholder />
       </div>
-    </div>
+      <BottomNav />
+    </main>
   );
 }
 
-export default CalendarDemo;
+export default IndexPage;
 
 const ImagePlaceholder = () => (
   <div className="grid gap-5 grid-cols-2 md:grid-cols-1 place-content-center">
     <div>
-      <Image
-        alt="sampleimage"
-        className="mb-1 rounded-lg"
-        width={300}
-        height={100}
-        style={{
-          objectFit: "cover",
-          width: "100%",
-          aspectRatio: "16/9",
-          maxWidth: "360px",
-        }}
-        src="https://upload.wikimedia.org/wikipedia/commons/thumb/3/3f/Placeholder_view_vector.svg/991px-Placeholder_view_vector.svg.png"
-      />
+      <Link href="/post">
+        <Image
+          alt="sampleimage"
+          className="mb-1 rounded-lg"
+          width={300}
+          height={100}
+          style={{
+            objectFit: "cover",
+            width: "100%",
+            aspectRatio: "16/9",
+            maxWidth: "360px",
+          }}
+          src="https://upload.wikimedia.org/wikipedia/commons/thumb/3/3f/Placeholder_view_vector.svg/991px-Placeholder_view_vector.svg.png"
+        />
+      </Link>
     </div>
     <div>
-      <h1 className="text-xl font-bold mb-3">Sample Title</h1>
+      <Link href="/post">
+        <h1 className="md:marker:text-xl font-bold mb-3">Sample Title</h1>
+      </Link>
     </div>
   </div>
 );
