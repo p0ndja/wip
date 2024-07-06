@@ -85,6 +85,7 @@ export function IndexPage() {
         <ImagePlaceholder />
         <ImagePlaceholder />
       </div>
+      <div style={{ paddingBottom: "5rem" }}></div>
       <BottomNav />
     </main>
   );

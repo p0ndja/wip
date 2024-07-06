@@ -1,4 +1,3 @@
-"use client";
 import "./styles.scss";
 
 import { Color } from "@tiptap/extension-color";
@@ -7,7 +6,6 @@ import TextStyle from "@tiptap/extension-text-style";
 import { EditorProvider, useCurrentEditor } from "@tiptap/react";
 import StarterKit from "@tiptap/starter-kit";
 import React from "react";
-import { Button } from "@/components/ui/button";
 
 const MenuBar = () => {
   const { editor } = useCurrentEditor();
@@ -19,47 +17,47 @@ const MenuBar = () => {
   return (
     <div className="control-group">
       <div className="button-group">
-        <Button
+        <button
           onClick={() => editor.chain().focus().toggleBold().run()}
           disabled={!editor.can().chain().focus().toggleBold().run()}
           className={editor.isActive("bold") ? "is-active" : ""}
         >
           Bold
-        </Button>
-        <Button
+        </button>
+        <button
           onClick={() => editor.chain().focus().toggleItalic().run()}
           disabled={!editor.can().chain().focus().toggleItalic().run()}
           className={editor.isActive("italic") ? "is-active" : ""}
         >
           Italic
-        </Button>
-        <Button
+        </button>
+        <button
           onClick={() => editor.chain().focus().toggleStrike().run()}
           disabled={!editor.can().chain().focus().toggleStrike().run()}
           className={editor.isActive("strike") ? "is-active" : ""}
         >
           Strike
-        </Button>
-        <Button
+        </button>
+        <button
           onClick={() => editor.chain().focus().toggleCode().run()}
           disabled={!editor.can().chain().focus().toggleCode().run()}
           className={editor.isActive("code") ? "is-active" : ""}
         >
           Code
-        </Button>
-        <Button onClick={() => editor.chain().focus().unsetAllMarks().run()}>
+        </button>
+        <button onClick={() => editor.chain().focus().unsetAllMarks().run()}>
           Clear marks
-        </Button>
-        <Button onClick={() => editor.chain().focus().clearNodes().run()}>
+        </button>
+        <button onClick={() => editor.chain().focus().clearNodes().run()}>
           Clear nodes
-        </Button>
-        <Button
+        </button>
+        <button
           onClick={() => editor.chain().focus().setParagraph().run()}
           className={editor.isActive("paragraph") ? "is-active" : ""}
         >
           Paragraph
-        </Button>
-        <Button
+        </button>
+        <button
           onClick={() =>
             editor.chain().focus().toggleHeading({ level: 1 }).run()
           }
@@ -68,8 +66,8 @@ const MenuBar = () => {
           }
         >
           H1
-        </Button>
-        <Button
+        </button>
+        <button
           onClick={() =>
             editor.chain().focus().toggleHeading({ level: 2 }).run()
           }
@@ -78,8 +76,8 @@ const MenuBar = () => {
           }
         >
           H2
-        </Button>
-        <Button
+        </button>
+        <button
           onClick={() =>
             editor.chain().focus().toggleHeading({ level: 3 }).run()
           }
@@ -88,8 +86,8 @@ const MenuBar = () => {
           }
         >
           H3
-        </Button>
-        <Button
+        </button>
+        <button
           onClick={() =>
             editor.chain().focus().toggleHeading({ level: 4 }).run()
           }
@@ -98,8 +96,8 @@ const MenuBar = () => {
           }
         >
           H4
-        </Button>
-        <Button
+        </button>
+        <button
           onClick={() =>
             editor.chain().focus().toggleHeading({ level: 5 }).run()
           }
@@ -108,8 +106,8 @@ const MenuBar = () => {
           }
         >
           H5
-        </Button>
-        <Button
+        </button>
+        <button
           onClick={() =>
             editor.chain().focus().toggleHeading({ level: 6 }).run()
           }
@@ -118,52 +116,52 @@ const MenuBar = () => {
           }
         >
           H6
-        </Button>
-        <Button
+        </button>
+        <button
           onClick={() => editor.chain().focus().toggleBulletList().run()}
           className={editor.isActive("bulletList") ? "is-active" : ""}
         >
           Bullet list
-        </Button>
-        <Button
+        </button>
+        <button
           onClick={() => editor.chain().focus().toggleOrderedList().run()}
           className={editor.isActive("orderedList") ? "is-active" : ""}
         >
           Ordered list
-        </Button>
-        <Button
+        </button>
+        <button
           onClick={() => editor.chain().focus().toggleCodeBlock().run()}
           className={editor.isActive("codeBlock") ? "is-active" : ""}
         >
           Code block
-        </Button>
-        <Button
+        </button>
+        <button
           onClick={() => editor.chain().focus().toggleBlockquote().run()}
           className={editor.isActive("blockquote") ? "is-active" : ""}
         >
           Blockquote
-        </Button>
-        <Button
+        </button>
+        <button
           onClick={() => editor.chain().focus().setHorizontalRule().run()}
         >
           Horizontal rule
-        </Button>
-        <Button onClick={() => editor.chain().focus().setHardBreak().run()}>
+        </button>
+        <button onClick={() => editor.chain().focus().setHardBreak().run()}>
           Hard break
-        </Button>
-        <Button
+        </button>
+        <button
           onClick={() => editor.chain().focus().undo().run()}
           disabled={!editor.can().chain().focus().undo().run()}
         >
           Undo
-        </Button>
-        <Button
+        </button>
+        <button
           onClick={() => editor.chain().focus().redo().run()}
           disabled={!editor.can().chain().focus().redo().run()}
         >
           Redo
-        </Button>
-        <Button
+        </button>
+        <button
           onClick={() => editor.chain().focus().setColor("#958DF1").run()}
           className={
             editor.isActive("textStyle", { color: "#958DF1" })
@@ -172,7 +170,7 @@ const MenuBar = () => {
           }
         >
           Purple
-        </Button>
+        </button>
       </div>
     </div>
   );
@@ -224,7 +222,7 @@ const content = `
 </blockquote>
 `;
 
-export default function Home() {
+export default function Tiptap() {
   return (
     <EditorProvider
       slotBefore={<MenuBar />}
