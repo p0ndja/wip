@@ -3,35 +3,24 @@ import Image from "next/image";
 
 import { useState } from "react";
 
-import { CalendarDays, CircleAlert, LayoutGrid } from "lucide-react";
+import { CircleAlert } from "lucide-react";
 
 import { Alert, AlertDescription, AlertTitle } from "@/components/ui/alert";
 import Link from "next/link";
 import BottomNav from "@/components/ui/BottomNav";
 
-import { Button } from "@/components/ui/button";
-import { Card, CardContent } from "@/components/ui/card";
-
-export function IndexPage() {
+export default function IndexPage() {
   const [date, setDate] = useState<Date | undefined>(new Date());
 
   return (
     <main className="container pt-5">
-      <Image
-        className="relative dark:invert mb-5"
-        src="/samohub.svg"
-        alt="SamoHub Logo"
-        width={100}
-        height={32}
-        priority
-      />
       <h1 className="text-4xl font-bold mb-3">Hello!</h1>
       <Alert style={{ color: "darkgreen" }} className="mb-3">
         <CircleAlert className="h-10 w-4" />
         <AlertTitle className="font-bold">Heads up!</AlertTitle>
         <AlertDescription>
-          You have a room reservation today on 19:00 PM at Samo Conference Room
-          1
+          You have a room reservation today on <b>19:00 - 21:00</b> at{" "}
+          <b>Samo Conference Room 1</b>
         </AlertDescription>
       </Alert>
       <div className="mb-3">
@@ -90,8 +79,6 @@ export function IndexPage() {
     </main>
   );
 }
-
-export default IndexPage;
 
 const ImagePlaceholder = () => (
   <div className="grid gap-5 grid-cols-2 md:grid-cols-1 place-content-center">
